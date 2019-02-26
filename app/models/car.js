@@ -7,6 +7,7 @@ export default class Car {
         this.year = data.year
         this.imgUrl = data.imgUrl
         this.description = data.description || 'No Description Provided'
+        this.mileage = data.mileage
     }
 
 
@@ -16,7 +17,7 @@ export default class Car {
             <img class="card-img-top" src="${this.imgUrl}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">${this.year} ${this.make} - ${this.model}</h5>
-                <p class="card-text">${this.description} -- $${this.price}</p>
+                <p class="card-text">${this.description} -- ${this.mileage} $${this.price}</p>
                 <button onclick="app.controllers.carController.bid('${this._id}')">BID</button>
                 <button onclick="app.controllers.carController.deleteCar('${this._id}')">Remove</button>
             </div>

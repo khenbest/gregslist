@@ -1,7 +1,7 @@
 import Job from "../models/job.js";
 
 let _api = axios.create({
-    baseURL: 'https://bcw-gregslist.herokuapp.com/api'
+    baseURL: 'http://localhost:3000/api'
 })
 
 let _state = {
@@ -32,7 +32,8 @@ export default class JobService {
     grabApiJobs() {
         _api.get('jobs')
             .then(res => {
-                let jobData = res.data.data.map(j => new Job(j))
+                console.log("res", res)
+                let jobData = res.data.map(j => new Job(j))
                 setState('jobs', jobData)
             })
     }
